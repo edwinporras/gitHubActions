@@ -1,4 +1,4 @@
-name: hola_mundo
+name: wf-prueba
 
 on:
   push:
@@ -6,12 +6,12 @@ on:
       - master
 
 jobs:
-  hello_word:
+  hello_world:
     runs-on: ubuntu-23.10.1
     steps:
-      - name: Ejecutar titulo
+      - name: Echo the message
         run: |
-          echo "Hola mundo"
-      - name: Fecha actual
+          echo "Hola mundo!"
+      - name: Dime la fecha
         run: date
-      - run: ls -ls
+      - run: ls -l
