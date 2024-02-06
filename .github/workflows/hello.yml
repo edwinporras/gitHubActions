@@ -7,8 +7,11 @@ on:
 
 jobs:
   hello_word:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-23.10.1
     steps:
       - name: Ejecutar titulo
         run: |
           echo "Hola mundo"
+      - name: Fecha actual
+        run: date
+      - run: ls -ls
