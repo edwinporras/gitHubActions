@@ -1,9 +1,9 @@
-name: hola
+name: hola_mundo
 
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   hello_word:
