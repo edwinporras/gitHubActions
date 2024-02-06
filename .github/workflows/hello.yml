@@ -1,0 +1,14 @@
+name: hola
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  hello_word:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Ejecutar titulo
+        run: |
+          echo "Hola mundo"
