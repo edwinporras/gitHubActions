@@ -1,6 +1,6 @@
-const express = import('express')
+const express = require('express')
 const app = express()
-const { version } = import('./package.json')
+const { version } = require('./package.json')
 
 // Heroku dynamically sets a port
 const PORT = process.env.PORT || 5000
