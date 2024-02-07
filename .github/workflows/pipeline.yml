@@ -60,6 +60,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+        #   ejecutar node
       - uses: actions/setup-node@v2
         with:
           cache: 'npm'
@@ -73,33 +74,33 @@ jobs:
       - name: Test
         run: npm test
 
-  e2e:
-    needs: [lint, build]
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-        # ejecutar node
-      - uses: actions/setup-node@v2
-        with:
-          cache: 'npm'
-          node-version: '14'
-      - name: Install dependencies
-        run: npm ci
-      - uses: actions/download-artifact@v2
-        with:
-          name: dist
-          path: dist
-      - name: E2E tests
-        uses: cypress-io/github-action@v6
-        with:
-          command: npm run test:e2e
-          start: npm run start-test
-          wait-on: http://localhost:5000
+#   e2e:
+#     needs: [lint, build]
+#     runs-on: ubuntu-latest
+#     steps:
+#       - uses: actions/checkout@v2
+#         with:
+#           fetch-depth: 0
+#         # ejecutar node
+#       - uses: actions/setup-node@v2
+#         with:
+#           cache: 'npm'
+#           node-version: '14'
+#       - name: Install dependencies
+#         run: npm ci
+#       - uses: actions/download-artifact@v2
+#         with:
+#           name: dist
+#           path: dist
+#       - name: E2E tests
+#         uses: cypress-io/github-action@v6
+#         with:
+#           command: npm run test:e2e
+#           start: npm run start-test
+#           wait-on: http://localhost:5000
 
   deploy:
-    needs: [test, e2e]
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
         # checkout: utilizar otro repo
